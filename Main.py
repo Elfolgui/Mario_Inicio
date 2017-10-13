@@ -15,18 +15,32 @@ ventana = Controlador.configurar_pantalla(ancho, alto)
 
 reloj = Controlador.iniciar_reloj()
 
-Controlador.Inicializar_Letras()
+Controlador.Inicializar_Titulo()
+Controlador.Inicializar_Subtitulo()
 
-Proxima = Controlador.Proxima_Letra(Base.letras_titulo)
+frames_totales = 0
+
+delay = 0
+
+frame = frames_totales
 
 Animacion = True
 
 while True:
     Acciones(reloj, fps)
-    if Controlador.Mover_Letra(Proxima, Animacion) == "Siguiente":
-        Proxima = Controlador.Proxima_Letra(Base.letras_titulo)
-        if Proxima is True:
-            Animacion = False
+    # if frame + delay < frames_totales:
+    #     frame =
+    Controlador.Proxima_Letra_Titulo(Base.letras_pasivas_titulo)
+    Controlador.Mover_Titulo(Base.letras_activas_titulo)
 
+    Controlador.Proxima_Letra_Subtitulo(Base.letras_pasivas_subtitulo)
+    Controlador.Mover_Subtitulo(Base.letras_activas_subtitulo)
 
     Dibujo.dibujo(fondo, ventana, colores)
+
+    delay += 5
+
+    if delay == 35:
+        delay = 0
+
+    frames_totales += 1

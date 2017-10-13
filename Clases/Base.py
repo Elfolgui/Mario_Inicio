@@ -2,7 +2,10 @@ from .Grupo_Sprites import *
 
 class Base(pygame.sprite.Sprite):
 
-    letras_titulo = Sprites()
+    letras_activas_titulo = Sprites()
+    letras_activas_subtitulo = Sprites()
+    letras_pasivas_titulo = Sprites()
+    letras_pasivas_subtitulo = Sprites()
     sprites = Sprites()
 
     def __init__(self, x, y, ancho, alto, ruta):
