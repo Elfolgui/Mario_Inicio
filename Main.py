@@ -17,12 +17,16 @@ reloj = Controlador.iniciar_reloj()
 
 Controlador.Inicializar_Letras()
 
-aux = 13
+Proxima = Controlador.Proxima_Letra(Base.letras_titulo)
 
-Proxima = Controlador.Proxima_Letra(Base.letras_titulo, aux)
+Animacion = True
 
 while True:
     Acciones(reloj, fps)
-    if Controlador.Mover_Letra(Proxima) == "Siguiente":
-        Proxima = Controlador.Proxima_Letra(Base.letras_titulo, aux)
+    if Controlador.Mover_Letra(Proxima, Animacion) == "Siguiente":
+        Proxima = Controlador.Proxima_Letra(Base.letras_titulo)
+        if Proxima is True:
+            Animacion = False
+
+
     Dibujo.dibujo(fondo, ventana, colores)

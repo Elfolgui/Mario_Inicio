@@ -57,39 +57,37 @@ class Controlador(object):
         S = Letra(1080, 200, 80, 100, "Letras/Titulo/Titulo13.png")
 
     @classmethod
-    def Proxima_Letra(cls, Grupo, aux):
+    def Proxima_Letra(cls, Grupo):
         minimo = 10000000
         L = 0
-        if aux <= 13:
+        if len(Grupo) != 0:
             for Letra in Grupo:
                 if Letra.rect.x < minimo:
                     minimo = Letra.rect.x
                     L = Letra
             L.Subiendo = True
             Base.letras_titulo.remove(L)
-            if L != 10000000:
-                aux -= 1
-                if aux == 1:
-                    aux = 13
-                return L
+            return L
+        return True
 
     @classmethod
-    def Mover_Letra(cls, Letra):
-        Original = Letra.rect.y
-        if Letra.Subiendo:
-            Letra.rect.y -= 10
-            if Letra.rect.y <= 150:
+    def Mover_Letra(cls, Letra, Animacion):
+        if Animacion:
+            Original = Letra.rect.y
+            if Letra.Subiendo:
+                Letra.rect.y -= 10
+                if Letra.rect.y <= 150:
+                    Letra.Subiendo = False
+                    Letra.Bajando = True
+            if Letra.Bajando:
+                Letra.rect.y += 10
+                if Letra.rect.y >= 250:
+                    Letra.Subiendo = True
+                    Letra.Bajando = False
+            if Letra.rect.y >= Original and Letra.Subiendo:
+                print("Entre")
                 Letra.Subiendo = False
-                Letra.Bajando = True
-        if Letra.Bajando:
-            Letra.rect.y += 10
-            if Letra.rect.y >= 250:
-                Letra.Subiendo = True
-                Letra.Bajando = False
-        if Letra.rect.y <= Original and Letra.Subiendo:
-            print("Entre")
-            Letra.Subiendo = False
-            return "Siguiente"
+                return "Siguiente"
 
 
     # @classmethod La Gorda Tiene Sueño
