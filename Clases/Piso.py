@@ -1,4 +1,5 @@
 from .Controlador import *
+from .Base import *
 
 class Piso(Base):
 

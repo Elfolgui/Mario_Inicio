@@ -1,4 +1,5 @@
 from Clases import *
+from Clases.Base import *
 
 Controlador.iniciar()
 
@@ -27,6 +28,7 @@ frame = frames_totales
 Animacion = True
 
 while True:
+
     if Acciones(reloj, fps):
         fondo.activo = False
 

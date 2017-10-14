@@ -1,6 +1,8 @@
-from .Titulo import *
-from .Subtitulo import *
-from .Colocacion import *
+import pygame
+from .Base import Base
+from .Titulo import Titulo
+from .Subtitulo import Subtitulo
+from .Inicializacion import inicializacion
 
 class Controlador(object):
 
@@ -33,7 +35,7 @@ class Controlador(object):
         if fondo.activo:
             ventana.blit(fondo.image, fondo.rect)
         if not fondo.activo:
-            Colocacion.inicializacion()
+            inicializacion()
 
     @classmethod
     def buscar_eventos(cls, Grupo):
@@ -49,8 +51,7 @@ class Controlador(object):
 
 
     @classmethod
-    def Inicializar_Titulo(self):
-
+    def Inicializar_Titulo(cls):
         S = Titulo(80, 200, 80, 100, "Letras/Titulo/Titulo1.png")
         u = Titulo(162, 200, 80, 100, "Letras/Titulo/Titulo2.png")
         p = Titulo(244, 200, 80, 100, "Letras/Titulo/Titulo3.png")
@@ -68,7 +69,7 @@ class Controlador(object):
         S = Titulo(1062, 200, 80, 100, "Letras/Titulo/Titulo13.png")
 
     @classmethod
-    def Inicializar_Subtitulo(self):
+    def Inicializar_Subtitulo(cls):
 
         a = Subtitulo(400, 350, 50, 70, "Letras/Subtitulo/Letra1.png")
         t = Subtitulo(450, 350, 50, 70, "Letras/Subtitulo/Letra2.png")

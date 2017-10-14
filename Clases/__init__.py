@@ -6,7 +6,7 @@ from .Dibujo import *
 from .Fondo import *
 from .Letras import *
 from .Piso import *
-from .Colocacion import *
 from .Grupo_Sprites import *
 from .Titulo import *
 from .Subtitulo import *
+from .Inicializacion import *
