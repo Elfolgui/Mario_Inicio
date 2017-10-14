@@ -2,10 +2,8 @@ from .Grupo_Sprites import *
 
 class Base(pygame.sprite.Sprite):
 
-    letras_activas_titulo = Sprites()
-    letras_activas_subtitulo = Sprites()
-    letras_pasivas_titulo = Sprites()
-    letras_pasivas_subtitulo = Sprites()
+    letras_activas = Sprites()
+    letras_pasivas= Sprites()
     sprites = Sprites()
     piso = Sprites()
 
