@@ -27,11 +27,13 @@ frame = frames_totales
 Animacion = True
 
 while True:
-    Acciones(reloj, fps)
-    # if frame + delay < frames_totales:
-    #     frame =
-    Controlador.Proxima_Letra_Titulo(Base.letras_pasivas_titulo)
+    if Acciones(reloj, fps):
+        fondo.activo = False
+
     Controlador.Mover_Titulo(Base.letras_activas_titulo)
+
+    if frame + delay < frames_totales:
+        frame = Controlador.Proxima_Letra_Titulo(Base.letras_pasivas_titulo, frames_totales)
 
     Controlador.Proxima_Letra_Subtitulo(Base.letras_pasivas_subtitulo)
     Controlador.Mover_Subtitulo(Base.letras_activas_subtitulo)

@@ -1,5 +1,6 @@
 from .Titulo import *
 from .Subtitulo import *
+from .Colocacion import *
 
 class Controlador(object):
 
@@ -29,15 +30,23 @@ class Controlador(object):
     @classmethod
     def rellenar_pantalla(cls, ventana, fondo, colores):
         ventana.fill(colores["Negro"])
-        ventana.blit(fondo.image, fondo.rect)
+        if fondo.activo:
+            ventana.blit(fondo.image, fondo.rect)
+        if not fondo.activo:
+            Colocacion.inicializacion()
 
     @classmethod
-    def buscar_eventos(cls):
+    def buscar_eventos(cls, Grupo):
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 cls.terminar()
             if evento.type == pygame.KEYDOWN and evento.key == pygame.K_ESCAPE:
                 cls.terminar()
+            if evento.type == pygame.KEYDOWN and evento.key == pygame.K_SPACE:
+                for sprite in Grupo:
+                    Grupo.remove(sprite)
+                return True
+
 
     @classmethod
     def Inicializar_Titulo(self):
@@ -71,7 +80,7 @@ class Controlador(object):
         e = Subtitulo(750, 350, 50, 70, "Letras/Subtitulo/Letra8.png")
 
     @classmethod
-    def Proxima_Letra_Titulo(cls, Grupo):
+    def Proxima_Letra_Titulo(cls, Grupo, frames_totales):
         minimo = 10000000
         L = 0
         if len(Grupo) != 0:
@@ -84,6 +93,7 @@ class Controlador(object):
             # L.minimo = L.rect.y + 150
             Base.letras_pasivas_titulo.remove(L)
             Base.letras_activas_titulo.add(L)
+        return frames_totales
 
     @classmethod
     def Proxima_Letra_Subtitulo(cls, Grupo):

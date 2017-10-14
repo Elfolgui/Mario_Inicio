@@ -7,6 +7,7 @@ class Base(pygame.sprite.Sprite):
     letras_pasivas_titulo = Sprites()
     letras_pasivas_subtitulo = Sprites()
     sprites = Sprites()
+    piso = Sprites()
 
     def __init__(self, x, y, ancho, alto, ruta):
         pygame.sprite.Sprite.__init__(self)

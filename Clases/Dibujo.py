@@ -1,5 +1,6 @@
 from .Controlador import *
 from .Base import *
+from .Colocacion import inicializacion
 
 def dibujo(fondo, ventana, colores):
 
