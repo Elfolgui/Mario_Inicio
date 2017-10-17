@@ -52,13 +52,13 @@ class Controlador(object):
 
         p = Letra(512, 200, 80, 100, "imagenes/letras/Titulo/Titulo6.png", False)
         o = Letra(594, 200, 80, 100, "imagenes/letras/Titulo/Titulo7.png", False)
-        l = Letra(662, 200, 80, 100, "imagenes/letras/Titulo/Titulo8.png", False)
-        i = Letra(742, 200, 60, 100, "imagenes/letras/Titulo/Titulo9.png", False)
+        l = Letra(674, 200, 80, 100, "imagenes/letras/Titulo/Titulo8.png", False)
+        i = Letra(755, 200, 60, 100, "imagenes/letras/Titulo/Titulo9.png", False)
 
-        b = Letra(822, 200, 80, 100, "imagenes/letras/Titulo/Titulo10.png", False)
-        r = Letra(902, 200, 80, 100, "imagenes/letras/Titulo/Titulo11.png", False)
-        o = Letra(982, 200, 80, 100, "imagenes/letras/Titulo/Titulo12.png", False)
-        S = Letra(1062, 200, 80, 100, "imagenes/letras/Titulo/Titulo13.png", False)
+        b = Letra(840, 200, 80, 100, "imagenes/letras/Titulo/Titulo10.png", False)
+        r = Letra(920, 200, 80, 100, "imagenes/letras/Titulo/Titulo11.png", False)
+        o = Letra(1000, 200, 80, 100, "imagenes/letras/Titulo/Titulo12.png", False)
+        S = Letra(1080, 200, 80, 100, "imagenes/letras/Titulo/Titulo13.png", False)
 
     @classmethod
     def Inicializar_Subtitulo(self):

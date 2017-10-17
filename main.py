@@ -39,7 +39,7 @@ while True:
 
     delay += 5
 
-    if delay == 40:
-        delay = 10
+    if delay == 15:
+        delay = 5
 
     frames_totales += 1
