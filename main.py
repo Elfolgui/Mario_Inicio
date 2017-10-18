@@ -1,4 +1,5 @@
 from clases import *
+import pygame
 
 Controlador.iniciar()
 
@@ -23,6 +24,11 @@ frames_totales = 0
 delay = 10
 
 frame = frames_totales
+
+pygame.mixer.music.load("menu_principal.wav")
+
+pygame.mixer.music.play(2,0)
+pygame.mixer.music.set_volume(0.25)
 
 while True:
 
