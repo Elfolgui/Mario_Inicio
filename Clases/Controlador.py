@@ -1,8 +1,6 @@
-import pygame
 from .Base import Base
-from .Titulo import Titulo
-from .Subtitulo import Subtitulo
-from .Inicializacion import inicializacion
+import pygame
+from .Letras import Letra
 
 class Controlador(object):
 
@@ -32,131 +30,76 @@ class Controlador(object):
     @classmethod
     def rellenar_pantalla(cls, ventana, fondo, colores):
         ventana.fill(colores["Negro"])
-        if fondo.activo:
-            ventana.blit(fondo.image, fondo.rect)
-        if not fondo.activo:
-            inicializacion()
+        ventana.blit(fondo.image, fondo.rect)
 
     @classmethod
-    def buscar_eventos(cls, Grupo):
+    def buscar_eventos(cls):
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 cls.terminar()
             if evento.type == pygame.KEYDOWN and evento.key == pygame.K_ESCAPE:
                 cls.terminar()
-            if evento.type == pygame.KEYDOWN and evento.key == pygame.K_SPACE:
-                for sprite in Grupo:
-                    Grupo.remove(sprite)
-                return True
 
 
     @classmethod
-    def Inicializar_Titulo(cls):
-        S = Titulo(80, 200, 80, 100, "Letras/Titulo/Titulo1.png")
-        u = Titulo(162, 200, 80, 100, "Letras/Titulo/Titulo2.png")
-        p = Titulo(244, 200, 80, 100, "Letras/Titulo/Titulo3.png")
-        e = Titulo(328, 200, 80, 100, "Letras/Titulo/Titulo4.png")
-        r = Titulo(410, 200, 80, 100, "Letras/Titulo/Titulo5.png")
+    def Inicializar_Titulo(self):
 
-        p = Titulo(512, 200, 80, 100, "Letras/Titulo/Titulo6.png")
-        o = Titulo(594, 200, 80, 100, "Letras/Titulo/Titulo7.png")
-        l = Titulo(662, 200, 80, 100, "Letras/Titulo/Titulo8.png")
-        i = Titulo(742, 200, 60, 100, "Letras/Titulo/Titulo9.png")
+        S = Letra(80, 200, 80, 100, "letras/titulo/Titulo1.png", False)
+        u = Letra(162, 200, 80, 100, "letras/titulo/Titulo2.png", False)
+        p = Letra(244, 200, 80, 100, "letras/titulo/Titulo3.png", False)
+        e = Letra(328, 200, 80, 100, "letras/titulo/Titulo4.png", False)
+        r = Letra(410, 200, 80, 100, "letras/titulo/Titulo5.png", False)
 
-        b = Titulo(822, 200, 80, 100, "Letras/Titulo/Titulo10.png")
-        r = Titulo(902, 200, 80, 100, "Letras/Titulo/Titulo11.png")
-        o = Titulo(982, 200, 80, 100, "Letras/Titulo/Titulo12.png")
-        S = Titulo(1062, 200, 80, 100, "Letras/Titulo/Titulo13.png")
+        p = Letra(512, 200, 80, 100, "letras/titulo/Titulo6.png", False)
+        o = Letra(594, 200, 80, 100, "letras/titulo/Titulo7.png", False)
+        l = Letra(674, 200, 80, 100, "letras/titulo/Titulo8.png", False)
+        i = Letra(755, 200, 60, 100, "letras/titulo/Titulo9.png", False)
 
-    @classmethod
-    def Inicializar_Subtitulo(cls):
-
-        a = Subtitulo(400, 350, 50, 70, "Letras/Subtitulo/Letra1.png")
-        t = Subtitulo(450, 350, 50, 70, "Letras/Subtitulo/Letra2.png")
-        r = Subtitulo(500, 350, 50, 70, "Letras/Subtitulo/Letra3.png")
-        e = Subtitulo(550, 350, 50, 70, "Letras/Subtitulo/Letra4.png")
-        v = Subtitulo(600, 350, 50, 70, "Letras/Subtitulo/Letra5.png")
-        e = Subtitulo(650, 350, 50, 70, "Letras/Subtitulo/Letra6.png")
-        t = Subtitulo(700, 350, 50, 70, "Letras/Subtitulo/Letra7.png")
-        e = Subtitulo(750, 350, 50, 70, "Letras/Subtitulo/Letra8.png")
+        b = Letra(840, 200, 80, 100, "letras/titulo/Titulo10.png", False)
+        r = Letra(920, 200, 80, 100, "letras/titulo/Titulo11.png", False)
+        o = Letra(1000, 200, 80, 100, "letras/titulo/Titulo12.png", False)
+        S = Letra(1080, 200, 80, 100, "letras/titulo/Titulo13.png", False)
 
     @classmethod
-    def Proxima_Letra_Titulo(cls, Grupo, frames_totales):
-        minimo = 10000000
-        L = 0
-        if len(Grupo) != 0:
-            for Letra in Grupo:
-                if Letra.rect.x < minimo:
-                    minimo = Letra.rect.x
-                    L = Letra
-            L.Subiendo = True
-            # L.maximo = L.rect.y - 50
-            # L.minimo = L.rect.y + 150
-            Base.letras_pasivas_titulo.remove(L)
-            Base.letras_activas_titulo.add(L)
+    def Inicializar_Subtitulo(self):
+
+        a = Letra(400, 400, 50, 70, "letras/Subtitulo/Letra1.png", True)
+        t = Letra(450, 400, 50, 70, "letras/Subtitulo/Letra2.png", True)
+        r = Letra(500, 400, 50, 70, "letras/Subtitulo/Letra3.png", True)
+        e = Letra(550, 400, 50, 70, "letras/Subtitulo/Letra4.png", True)
+        v = Letra(600, 400, 50, 70, "letras/Subtitulo/Letra5.png", True)
+        e = Letra(650, 400, 50, 70, "letras/Subtitulo/Letra4.png", True)
+        t = Letra(700, 400, 50, 70, "letras/Subtitulo/Letra2.png", True)
+        e = Letra(750, 400, 50, 70, "letras/Subtitulo/Letra4.png", True)
+
+    @classmethod
+    def proxima_letra(cls, frames_totales):
+        minimo = 2000
+        objeto = None
+
+        for letra in Base.letras_pasivas:
+            if letra.rect.x < minimo:
+                minimo = letra.rect.x
+                objeto = letra
+
+        objeto.subiendo = True
+        Base.letras_pasivas.remove(objeto)
+        Base.letras_activas.add(objeto)
         return frames_totales
 
     @classmethod
-    def Proxima_Letra_Subtitulo(cls, Grupo):
-        minimo = 10000000
-        L = 0
-        if len(Grupo) != 0:
-            for Letra in Grupo:
-                if Letra.rect.x < minimo:
-                    minimo = Letra.rect.x
-                    L = Letra
-            L.Subiendo = True
-            # L.maximo = L.rect.y - 50
-            # L.minimo = L.rect.y + 150
-            Base.letras_pasivas_subtitulo.remove(L)
-            Base.letras_activas_subtitulo.add(L)
+    def mover(cls):
 
-    @classmethod
-    def Mover_Titulo(cls, Grupo):
-        for letra in Grupo:
-            if letra.Subiendo:
-                letra.rect.y -= 5
-                if letra.rect.y < 175:
-                    letra.Subiendo = False
-                    letra.Bajando = True
-            if letra.Bajando:
-                letra.rect.y += 5
-                if letra.rect.y >= 225:
-                    letra.Subiendo = True
-                    letra.Bajando = False
+        for letra in Base.letras_activas:
 
-    @classmethod
-    def Mover_Subtitulo(cls, Grupo):
-        for letra in Grupo:
-            letra.maximo = letra.rect.y - 50
-            letra.minimo = letra.rect.y + 150
-            if letra.Subiendo:
-                letra.rect.y -= 5
-                if letra.rect.y <= 325:
-                    letra.Subiendo = False
-                    letra.Bajando = True
-            if letra.Bajando:
-                letra.rect.y += 5
-                if letra.rect.y >= 375:
-                    letra.Subiendo = True
-                    letra.Bajando = False
+            if letra.subiendo:
+                letra.rect.y -= letra.velocidad
+                if letra.rect.y < letra.maximo:
+                    letra.subiendo = False
+                    letra.bajando = True
 
-    # @classmethod
-    # def Mover_Letra(cls, Letra, Animacion):
-    #     Original = Letra.rect.y
-    #     if Animacion:
-    #         if Letra.Subiendo:
-    #             Letra.rect.y -= 5
-    #             if Letra.rect.y <= 150:
-    #                 Letra.Subiendo = False
-    #                 Letra.Bajando = True
-    #         if Letra.Bajando:
-    #             Letra.rect.y += 5
-    #             if Letra.rect.y >= 250:
-    #                 print("Subo")
-    #                 Letra.Subiendo = True
-    #                 Letra.Bajando = False
-    #         if Letra.rect.y == Original and Letra.Bajando:
-    #             print("Entre")
-    #             Letra.Subiendo = False
-    #             return "Siguiente"
+            if letra.bajando:
+                letra.rect.y += letra.velocidad
+                if letra.rect.y >= letra.minimo:
+                    letra.subiendo = True
+                    letra.bajando = False
