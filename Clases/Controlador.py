@@ -1,6 +1,7 @@
 from .Base import Base
 import pygame
 from .Letras import Letra
+from .Fin import Final
 
 class Controlador(object):
 
@@ -28,9 +29,10 @@ class Controlador(object):
         reloj.tick(frames)
 
     @classmethod
-    def rellenar_pantalla(cls, ventana, fondo, colores):
+    def rellenar_pantalla(cls, ventana, fondo, colores, No_Printees):
         ventana.fill(colores["Negro"])
-        ventana.blit(fondo.image, fondo.rect)
+        if not No_Printees:
+            ventana.blit(fondo.image, fondo.rect)
 
     @classmethod
     def buscar_eventos(cls):
@@ -39,6 +41,8 @@ class Controlador(object):
                 cls.terminar()
             if evento.type == pygame.KEYDOWN and evento.key == pygame.K_ESCAPE:
                 cls.terminar()
+            if evento.type == pygame.KEYDOWN and evento.key == pygame.K_SPACE:
+                return True
 
 
     @classmethod
@@ -103,3 +107,34 @@ class Controlador(object):
                 if letra.rect.y >= letra.minimo:
                     letra.subiendo = True
                     letra.bajando = False
+
+    @classmethod
+    def Inicializacion_Final(cls):
+
+        c1 = Final(0, 0, 1360, 720, "Transicion_Final/Parte1.png")
+        c2 = Final(0, 0, 1360, 720, "Transicion_Final/Parte2.png")
+        c3 = Final(0, 0, 1360, 720, "Transicion_Final/Parte3.png")
+        c4 = Final(0, 0, 1360, 720, "Transicion_Final/Parte4.png")
+        c5 = Final(0, 0, 1360, 720, "Transicion_Final/Parte5.png")
+        c6 = Final(0, 0, 1360, 720, "Transicion_Final/Parte6.png")
+        c7 = Final(0, 0, 1360, 720, "Transicion_Final/Parte7.png")
+        c8 = Final(0, 0, 1360, 720, "Transicion_Final/Parte8.png")
+        c9 = Final(0, 0, 1360, 720, "Transicion_Final/Parte9.png")
+        c10 = Final(0, 0, 1360, 720, "Transicion_Final/Parte10.png")
+        c11 = Final(0, 0, 1360, 720, "Transicion_Final/Parte11.png")
+        c12 = Final(0, 0, 1360, 720, "Transicion_Final/Parte12.png")
+        c13 = Final(0, 0, 1360, 720, "Transicion_Final/Parte13.png")
+        c14 = Final(0, 0, 1360, 720, "Transicion_Final/Parte14.png")
+        c15 = Final(0, 0, 1360, 720, "Transicion_Final/Parte15.png")
+        c16 = Final(0, 0, 1360, 720, "Transicion_Final/Parte16.png")
+        c17 = Final(0, 0, 1360, 720, "Transicion_Final/Parte17.png")
+        c18 = Final(0, 0, 1360, 720, "Transicion_Final/Parte18.png")
+        c19 = Final(0, 0, 1360, 720, "Transicion_Final/Parte19.png")
+        c20 = Final(0, 0, 1360, 720, "Transicion_Final/Parte20.png")
+
+        Lista_Negra = [c1, c2, c3, c4, c5,
+                       c6, c7, c8, c9, c10,
+                       c11, c12, c13, c14, c15,
+                       c16, c17, c18, c19, c20]
+
+        return Lista_Negra
