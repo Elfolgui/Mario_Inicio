@@ -21,9 +21,19 @@ Controlador.Inicializar_Subtitulo()
 
 frames_totales = 0
 
+Devolucion = False
+
+Termine = False
+
 delay = 10
 
 frame = frames_totales
+
+otros_frames = frames_totales
+
+Contador = 0
+
+Lista_Negra = Controlador.Inicializacion_Final()
 
 #pygame.mixer.music.load("menu_principal.wav")
 
@@ -33,13 +43,21 @@ frame = frames_totales
 while True:
 
     Controlador.set_fps(reloj, fps)
-    Controlador.buscar_eventos()
 
-    Controlador.mover()
+    if Controlador.buscar_eventos():
+        Devolucion = True
 
-    if frame + delay < frames_totales:
-        if len(Base.letras_pasivas) > 0:
-            frame = Controlador.proxima_letra(frames_totales)
+    if Devolucion:
+        Termine = True
+        otros_frames = frames_totales
+        Base.sprites.add(Lista_Negra[Contador])
+        Contador += 1
+
+    if not Termine:
+        Controlador.mover()
+        if frame + delay < frames_totales:
+            if len(Base.letras_pasivas) > 0:
+                frame = Controlador.proxima_letra(frames_totales)
 
     Dibujo.dibujo(fondo, ventana, colores)
 
